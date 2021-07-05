@@ -9,10 +9,7 @@ namespace AtCoder.Answer
         static void Main(string[] args)
         {
             var writer = new ConsoleWriter();
-            var reader = new ConsoleReader(new MemoryStream(new UTF8Encoding(false).GetBytes(@"1 2
-    3 4
-    5 6
-    ")), Encoding.UTF8);
+            var reader = new ConsoleReader(new FileStream("../../../input.txt", FileMode.Open, FileAccess.Read), Encoding.UTF8);
             new Program(reader, writer).Run();
         }
     }
