@@ -2,7 +2,7 @@
 using System.IO;
 using System.Text;
 
-namespace AtCoder.Answer
+namespace Suzuryg.Competitive.Answer
 {
     static class HandMadeMain
     {

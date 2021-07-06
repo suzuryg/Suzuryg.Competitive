@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
-namespace AtCoder.Answer
+namespace Suzuryg.Competitive.Answer
 {
     public partial class Program
     {
