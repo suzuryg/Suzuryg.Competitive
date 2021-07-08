@@ -5,7 +5,7 @@
 PATH=~/.npm-global/bin:$PATH
 ```
 
-npmのインストールと設定
+npmのインストールと設定（完了後に再ログイン）
 ```
 sudo apt update
 sudo apt install nodejs npm
@@ -28,9 +28,9 @@ sudo apt update
 sudo apt install python3-pip
 ```
 
-online-judge-toolsのインストール
+online-judge-toolsのインストール（完了後に再ログイン）
 ```
-pip3 install online-judge-tool
+pip3 install online-judge-tools
 ```
 
 .NET SDKのインストール
@@ -75,13 +75,13 @@ acc n <contest-id>
 テスト
 ```
 cd <path-to-test-dir>/<contest-id>/<task-id>
-oj-test
+ojtest
 ```
 
 提出
 ```
 cd <path-to-test-dir>/<contest-id>/<task-id>
-oj-submit
+ojsubmit
 ```
  
 # 参考
