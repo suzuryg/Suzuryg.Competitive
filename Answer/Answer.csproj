@@ -8,6 +8,10 @@
     <StartupObject>Suzuryg.Competitive.Answer.HandMadeMain</StartupObject>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="ac-library-csharp" Version="1.6.5" />
     <PackageReference Include="AtCoderAnalyzer" Version="1.6.5">
