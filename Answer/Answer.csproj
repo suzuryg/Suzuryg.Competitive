@@ -5,7 +5,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <LangVersion>8</LangVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <StartupObject>Suzuryg.Competitive.Answer.HandMadeMain</StartupObject>
+    <StartupObject>Suzuryg.Competitive.Answer.Program</StartupObject>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
