@@ -1,5 +1,6 @@
 ﻿// https://qiita.com/naminodarie/items/dce121a992cbdca69a78
 using Kzrnm.Competitive.IO;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
