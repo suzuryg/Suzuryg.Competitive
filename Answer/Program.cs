@@ -9,6 +9,7 @@ namespace Suzuryg.Competitive.Answer
 {
     public partial class Program
     {
+        static readonly long mod = 1000000007;
         static void Main() => new Program(new ConsoleReader(), new ConsoleWriter()).Run();
         [DebuggerBrowsable(DebuggerBrowsableState.Never)] public ConsoleReader cr;
         [DebuggerBrowsable(DebuggerBrowsableState.Never)] public ConsoleWriter cw;
