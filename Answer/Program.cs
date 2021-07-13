@@ -9,7 +9,10 @@ namespace Suzuryg.Competitive.Answer
 {
     public partial class Program
     {
+        #pragma warning disable 0414
         static readonly long mod = 1000000007;
+        #pragma warning restore 0414
+
         static void Main() => new Program(new ConsoleReader(), new ConsoleWriter()).Run();
         [DebuggerBrowsable(DebuggerBrowsableState.Never)] public ConsoleReader cr;
         [DebuggerBrowsable(DebuggerBrowsableState.Never)] public ConsoleWriter cw;
