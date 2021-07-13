@@ -37,9 +37,9 @@ namespace Suzuryg.Competitive.Answer
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
         private object Calc()
         {
-            int N = cr;
+            int n = cr;
 
-            return N;
+            return n;
         }
     }
 }
