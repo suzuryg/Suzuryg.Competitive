@@ -38,4 +38,7 @@ msbuild.wrn
 
 # user defined
 Answer/Combined.csx
-
+Answer/obj_ubuntu
+Answer/obj_windows
+Library/obj_ubuntu
+Library/obj_windows
