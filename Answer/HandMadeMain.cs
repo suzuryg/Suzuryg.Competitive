@@ -1,5 +1,6 @@
 ﻿using Kzrnm.Competitive.IO;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
@@ -9,7 +10,7 @@ namespace Suzuryg.Competitive.Answer
     {
         static void Main(string[] args)
         {
-            RuntimeErrorTest();
+            TestWithInputTxt();
         }
         private static void TestWithInputTxt()
         {
@@ -49,6 +50,74 @@ namespace Suzuryg.Competitive.Answer
             }
 
             return input;
+        }
+        private static void WrongAnswerTest()
+        {
+            const int numCases = 100;
+
+            for (int idxCase = 0; idxCase < numCases; idxCase++)
+            {
+                (string input, string output) = GenerateInputForWrongAnswerTest();
+                Console.WriteLine(input);
+
+                var outStream = new MemoryStream();
+                var writer = new ConsoleWriter(outStream, Encoding.UTF8);
+                var reader = new ConsoleReader(new MemoryStream(new UTF8Encoding(false).GetBytes(input)), Encoding.UTF8);
+                new Program(reader, writer).Run();
+
+                string answer = Encoding.UTF8.GetString(outStream.ToArray());
+                answer = answer.Replace("\r\n", "\n");
+
+                if (answer.CompareTo(output) == 0)
+                {
+                    Console.WriteLine("AC");
+                }
+                else
+                {
+                    Console.WriteLine("WA");
+                    break;
+                }
+            }
+        }
+        private static (string input, string output) GenerateInputForWrongAnswerTest()
+        {
+            // ABC206 C
+            int minN = 2;
+            int maxN = 10000;
+
+            var rand = new Random();
+            string input = "";
+            string output = "";
+
+            int n = rand.Next(minN, maxN);
+            input += $"{n}\n";
+
+            List<int> a = new List<int>();
+            for (int i = 0; i < n; i++)
+            {
+                int aVal = rand.Next(1, (int)Math.Pow(10, 9));
+                a.Add(aVal);
+                input += $"{aVal} ";
+            }
+
+            // 愚直解
+            long ans = 0;
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = i + 1; j < n; j++)
+                {
+                    if (a[i] != a[j])
+                    {
+                        ans++;
+                    }
+                }
+            }
+
+            output += $"{ans}";
+            // cw.WriteLineで出力しているため、最後に改行が入る
+            output += "\n";
+
+            return (input, output);
         }
     }
 }
