@@ -40,12 +40,12 @@ namespace Suzuryg.Competitive.Answer
             var rand = new Random();
             string input = "";
 
-            int n = rand.Next(minN, maxN);
+            int n = rand.Next(minN, maxN + 1);
             input += $"{n}\n";
 
             for (int i = 0; i < n; i++)
             {
-                int a = rand.Next(1, (int)Math.Pow(10, 9));
+                int a = rand.Next(1, (int)Math.Pow(10, 9) + 1);
                 input += $"{a} ";
             }
 
@@ -89,13 +89,13 @@ namespace Suzuryg.Competitive.Answer
             string input = "";
             string output = "";
 
-            int n = rand.Next(minN, maxN);
+            int n = rand.Next(minN, maxN + 1);
             input += $"{n}\n";
 
             List<int> a = new List<int>();
             for (int i = 0; i < n; i++)
             {
-                int aVal = rand.Next(1, (int)Math.Pow(10, 9));
+                int aVal = rand.Next(1, (int)Math.Pow(10, 9) + 1);
                 a.Add(aVal);
                 input += $"{aVal} ";
             }
