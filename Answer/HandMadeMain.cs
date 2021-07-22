@@ -75,6 +75,8 @@ namespace Suzuryg.Competitive.Answer
                 else
                 {
                     Console.WriteLine("WA");
+                    Console.WriteLine($"Correct: {output}");
+                    Console.WriteLine($"Wrong: {answer}");
                     break;
                 }
             }
