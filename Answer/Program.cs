@@ -6,6 +6,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 
+using Suzuryg.Competitive.Library.Collections;
+
 namespace Suzuryg.Competitive.Answer
 {
     public partial class Program
