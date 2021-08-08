@@ -58,7 +58,6 @@ namespace Suzuryg.Competitive.Answer
             for (int idxCase = 0; idxCase < numCases; idxCase++)
             {
                 (string input, string output) = GenerateInputForWrongAnswerTest();
-                Console.WriteLine(input);
 
                 var outStream = new MemoryStream();
                 var writer = new ConsoleWriter(outStream, Encoding.UTF8);
@@ -70,16 +69,17 @@ namespace Suzuryg.Competitive.Answer
 
                 if (answer.CompareTo(output) == 0)
                 {
-                    Console.WriteLine("AC");
                 }
                 else
                 {
                     Console.WriteLine("WA");
+                    Console.WriteLine($"Input: {input}");
                     Console.WriteLine($"Correct: {output}");
                     Console.WriteLine($"Wrong: {answer}");
-                    break;
+                    return;
                 }
             }
+            Console.WriteLine("AC");
         }
         private static (string input, string output) GenerateInputForWrongAnswerTest()
         {
@@ -117,6 +117,7 @@ namespace Suzuryg.Competitive.Answer
 
             output += $"{ans}";
             // cw.WriteLineで出力しているため、最後に改行が入る
+            // WAになる場合は、ここをコメントアウトして試してみる
             output += "\n";
 
             return (input, output);
