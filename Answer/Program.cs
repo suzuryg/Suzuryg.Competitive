@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 
 using Suzuryg.Competitive.Library.Collections;
+using Suzuryg.Competitive.Library.Math;
 
 namespace Suzuryg.Competitive.Answer
 {
