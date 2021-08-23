@@ -85,7 +85,10 @@ namespace Suzuryg.Competitive.Library.Collections
 
         public IEnumerator<T> GetEnumerator()
         {
-            return _data.GetEnumerator();
+            while (this.Count > 0)
+            {
+                yield return this.Dequeue();
+            }
         }
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
