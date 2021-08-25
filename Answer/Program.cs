@@ -8,6 +8,7 @@ using System.Runtime.CompilerServices;
 
 using Suzuryg.Competitive.Library.Collections;
 using Suzuryg.Competitive.Library.Math;
+using Suzuryg.Competitive.Library.Graph;
 
 namespace Suzuryg.Competitive.Answer
 {
