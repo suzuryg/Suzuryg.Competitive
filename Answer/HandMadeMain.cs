@@ -31,6 +31,18 @@ namespace Suzuryg.Competitive.Answer
                 new Program(reader, writer).Run();
             }
         }
+        private static void RuntimeErrorTestWithoutOutput()
+        {
+            const int numCases = 1000;
+
+            var writer = new ConsoleWriter(Stream.Null, Encoding.UTF8);
+            for (int idxCase = 0; idxCase < numCases; idxCase++)
+            {
+                var input = GenerateInputForRutimeErrorTest();
+                var reader = new ConsoleReader(new MemoryStream(new UTF8Encoding(false).GetBytes(input)), Encoding.UTF8);
+                new Program(reader, writer).Run();
+            }
+        }
         private static string GenerateInputForRutimeErrorTest()
         {
             // ABC221 D
