@@ -33,23 +33,24 @@ namespace Suzuryg.Competitive.Answer
         }
         private static string GenerateInputForRutimeErrorTest()
         {
-            // ABC206 C
-            int minN = 2;
-            int maxN = 10000;
+            // ABC221 D
+            int minN = 1;
+            int maxN = 2 * 100000;
 
             var rand = new Random();
-            string input = "";
+            List<string> inputList = new List<string>();
 
             int n = rand.Next(minN, maxN + 1);
-            input += $"{n}\n";
+            inputList.Add($"{n}\n");
 
             for (int i = 0; i < n; i++)
             {
                 int a = rand.Next(1, (int)Math.Pow(10, 9) + 1);
-                input += $"{a} ";
+                int b = rand.Next(1, (int)Math.Pow(10, 9) + 1);
+                inputList.Add($"{a} {b}\n");
             }
 
-            return input;
+            return string.Concat(inputList);
         }
         private static void WrongAnswerTest()
         {
