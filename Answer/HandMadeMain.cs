@@ -101,18 +101,18 @@ namespace Suzuryg.Competitive.Answer
             int maxN = 10000;
 
             var rand = new Random();
-            string input = "";
-            string output = "";
+            List<string> inputList = new List<string>();
+            List<string> outputList = new List<string>();
 
             int n = rand.Next(minN, maxN + 1);
-            input += $"{n}\n";
+            inputList.Add($"{n}\n");
 
             List<int> a = new List<int>();
             for (int i = 0; i < n; i++)
             {
                 int aVal = rand.Next(1, (int)Math.Pow(10, 9) + 1);
                 a.Add(aVal);
-                input += $"{aVal} ";
+                inputList.Add($"{aVal} ");
             }
 
             // 愚直解
@@ -128,12 +128,12 @@ namespace Suzuryg.Competitive.Answer
                 }
             }
 
-            output += $"{ans}";
+            outputList.Add($"{ans}");
             // cw.WriteLineで出力しているため、最後に改行が入る
             // WAになる場合は、ここをコメントアウトして試してみる
-            output += "\n";
+            outputList.Add("\n");
 
-            return (input, output);
+            return (string.Concat(inputList), string.Concat(outputList));
         }
     }
 }
