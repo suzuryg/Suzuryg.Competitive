@@ -27,5 +27,35 @@ namespace Suzuryg.Competitive.Library.Search
             }
             return ok;
         }
+        public static long[] BFS(List<List<int>> graph, List<int> startNodes)
+        {
+            Queue<int> que = new Queue<int>();
+            bool[] seen = new bool[graph.Count];
+            long[] distance = new long[graph.Count];
+            for (int i = 0; i < seen.Length; i++)
+            {
+                seen[i] = false;
+                distance[i] = -1;
+            }
+            foreach (var start in startNodes)
+            {
+                que.Enqueue(start);
+                distance[start] = 0;
+            }
+            while(que.Count > 0)
+            {
+                var now = que.Dequeue();
+                if (!seen[now])
+                {
+                    seen[now] = true;
+                    foreach (var next in graph[now])
+                    {
+                        que.Enqueue(next);
+                        distance[next] = distance[now] + 1;
+                    }
+                }
+            }
+            return distance;
+        }
     }
 }
