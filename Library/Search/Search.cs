@@ -27,6 +27,24 @@ namespace Suzuryg.Competitive.Library.Search
             }
             return ok;
         }
+        public static int BinarySearch(int ng, int ok, Func<int, bool> isOK)
+        {
+            // ok と ng のどちらが大きいかわからないことを考慮
+            while (System.Math.Abs(ok - ng) > 1)
+            {
+                int mid = (ok + ng) / 2;
+
+                if (isOK(mid))
+                {
+                    ok = mid;
+                }
+                else
+                {
+                    ng = mid;
+                }
+            }
+            return ok;
+        }
         public static long[] BFS(List<List<int>> graph, List<int> startNodes)
         {
             Queue<int> que = new Queue<int>();
