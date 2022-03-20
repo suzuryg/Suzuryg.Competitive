@@ -7,7 +7,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 
 using Suzuryg.Competitive.Library.Collections;
-using Suzuryg.Competitive.Library.Math;
+using Suzuryg.Competitive.Library.MyMath;
 using Suzuryg.Competitive.Library.Graph;
 using Suzuryg.Competitive.Library.Search;
 

@@ -4,7 +4,7 @@ using System.Text;
 
 using System.Linq;
 
-namespace Suzuryg.Competitive.Library.Math
+namespace Suzuryg.Competitive.Library.MyMath
 {
     public class Iteration
     {

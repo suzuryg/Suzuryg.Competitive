@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Suzuryg.Competitive.Library.Math
+namespace Suzuryg.Competitive.Library.MyMath
 {
     public class Integer
     {
