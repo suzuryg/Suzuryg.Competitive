@@ -10,7 +10,7 @@ namespace Suzuryg.Competitive.Answer
     {
         static void Main(string[] args)
         {
-            TestWithInputTxt();
+            WrongAnswerTest();
         }
         private static void TestWithInputTxt()
         {
@@ -96,44 +96,102 @@ namespace Suzuryg.Competitive.Answer
         }
         private static (string input, string output) GenerateInputForWrongAnswerTest()
         {
-            // ABC206 C
-            int minN = 2;
-            int maxN = 10000;
-
-            var rand = new Random();
-            List<string> inputList = new List<string>();
-            List<string> outputList = new List<string>();
-
-            int n = rand.Next(minN, maxN + 1);
-            inputList.Add($"{n}\n");
-
-            List<int> a = new List<int>();
-            for (int i = 0; i < n; i++)
+            while (true)
             {
-                int aVal = rand.Next(1, (int)Math.Pow(10, 9) + 1);
-                a.Add(aVal);
-                inputList.Add($"{aVal} ");
-            }
+                // ABC245 D
+                //int minN = 1;
+                //int maxN = 100;
+                //int minM = 1;
+                //int maxM = 100;
+                int minN = 3;
+                int maxN = 3;
+                int minM = 3;
+                int maxM = 3;
 
-            // 愚直解
-            long ans = 0;
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = i + 1; j < n; j++)
+                var rand = new Random();
+                List<string> inputList = new List<string>();
+                List<string> outputList = new List<string>();
+
+                int n = rand.Next(minN, maxN + 1);
+                inputList.Add($"{n}\n");
+                int m = rand.Next(minM, maxM + 1);
+                inputList.Add($"{m}\n");
+
+                List<int> a = new List<int>();
+                for (int i = 0; i <= n; i++)
                 {
-                    if (a[i] != a[j])
+                    int aVal = rand.Next(-100, 100 + 1);
+                    a.Add(aVal);
+                }
+                inputList.Add(string.Join(' ', a));
+                inputList.Add("\n");
+
+                List<int> b = new List<int>();
+                for (int i = 0; i <= m; i++)
+                {
+                    int bVal = rand.Next(-100, 100 + 1);
+                    b.Add(bVal);
+                }
+                outputList.Add(string.Join(' ', b));
+
+                int[] c = new int[n + m + 1];
+                for (int i = 0; i <= n; i++)
+                {
+                    for (int j = 0; j <= m; j++)
                     {
-                        ans++;
+                        c[i + j] += a[i] * b[j];
+                    }
+                }
+                inputList.Add(string.Join(' ', c));
+                inputList.Add("\n");
+
+                // cw.WriteLineで出力しているため、最後に改行が入る
+                // WAになる場合は、ここをコメントアウトして試してみる
+                outputList.Add("\n");
+
+                // REが発生していたケースを探す
+                int[,] coef = new int[n + m + 1, m + 1];
+
+                for (int i = 0; i <= n; i++)
+                {
+                    for (int j = 0; j <= m; j++)
+                    {
+                        coef[i + j, j] += a[i];
+                    }
+                }
+
+                for (int row = 0; row < n + m + 1; row++)
+                {
+                    if (row >= m + 1)
+                    {
+                        continue;
+                    }
+
+                    int div = coef[row, row];
+                    if (div != 0)
+                    {
+                        for (int col = 0; col < m + 1; col++)
+                        {
+                            coef[row, col] /= div;
+                        }
+                        c[row] /= div;
+
+                        for (int rowB = row + 1; rowB < n + m + 1; rowB++)
+                        {
+                            int mul = coef[rowB, row];
+                            for (int col = 0; col < m + 1; col++)
+                            {
+                                coef[rowB, col] -= coef[row, col] * mul;
+                            }
+                            c[rowB] -= c[row] * mul;
+                        }
+                    }
+                    else
+                    {
+                        return (string.Concat(inputList), string.Concat(outputList));
                     }
                 }
             }
-
-            outputList.Add($"{ans}");
-            // cw.WriteLineで出力しているため、最後に改行が入る
-            // WAになる場合は、ここをコメントアウトして試してみる
-            outputList.Add("\n");
-
-            return (string.Concat(inputList), string.Concat(outputList));
         }
     }
 }

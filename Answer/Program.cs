@@ -40,8 +40,67 @@ namespace Suzuryg.Competitive.Answer
         private object Calc()
         {
             int n = cr;
+            int m = cr;
+            int[] a = new int[n + 1];
+            int[] c = new int[n + m + 1];
+            for (int i = 0; i <= n; i++)
+            {
+                a[i] = cr;
+            }
+            for (int i = 0; i <= n + m; i++)
+            {
+                c[i] = cr;
+            }
 
-            return n;
+            int[,] coef = new int[n + m + 1, m + 1];
+
+            for (int i = 0; i <= n; i++)
+            {
+                for (int j = 0; j <= m; j++)
+                {
+                    coef[i + j, j] += a[i];
+                }
+            }
+
+            int offset = 0;
+            for (int row = 0; row < n + m + 1; row++)
+            {
+                if (row - offset >= m + 1)
+                {
+                    break;
+                }
+
+                int div = coef[row, row - offset];
+                if (div != 0)
+                {
+                    for (int col = 0; col < m + 1; col++)
+                    {
+                        coef[row, col] /= div;
+                    }
+                    c[row] /= div;
+
+                    for (int rowB = row + 1; rowB < n + m + 1; rowB++)
+                    {
+                        int mul = coef[rowB, row - offset];
+                        for (int col = 0; col < m + 1; col++)
+                        {
+                            coef[rowB, col] -= coef[row, col] * mul;
+                        }
+                        c[rowB] -= c[row] * mul;
+                    }
+                }
+                else
+                {
+                    offset++;
+                }
+            }
+
+            List<int> ans = new List<int>();
+            for (int i = 0; i <= m; i++)
+            {
+                ans.Add(c[i + offset]);
+            }
+            return string.Join(' ', ans);
         }
     }
 }
