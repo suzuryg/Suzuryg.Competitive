@@ -54,14 +54,16 @@ namespace Suzuryg.Competitive.Answer
                 try
                 {
                     // ABC243 D
-                    var rand = new Library.MyMath.Random();
-                    int n = rand.Next(1, int.Parse("1" + new string('0', 6)) + 1);
-                    long x = rand.Next(1, long.Parse("1" + new string('0', 18)) + 1);
+                    var intRandom = new System.Random();
+                    var longRandom = new Library.MyMath.LongRandom();
+
+                    int n = intRandom.Next(1, int.Parse("1" + new string('0', 6)) + 1);
+                    long x = longRandom.Next(1, long.Parse("1" + new string('0', 18)) + 1);
                     List<char> s = new List<char>();
                     long ans = x;
                     for (int i = 0; i < n; i++)
                     {
-                        int temp = rand.Next(0, 2 + 1);
+                        int temp = intRandom.Next(0, 2 + 1);
                         if (temp % 3 == 0)
                         {
                             if (ans >= 2)
@@ -71,7 +73,7 @@ namespace Suzuryg.Competitive.Answer
                             }
                             else
                             {
-                                int temp2 = rand.Next(0, 1 + 1);
+                                int temp2 = intRandom.Next(0, 1 + 1);
                                 if (temp2 % 2 == 0)
                                 {
                                     ans *= 2;
@@ -116,7 +118,7 @@ namespace Suzuryg.Competitive.Answer
                     inputList.Add($"{x}\n");
                     inputList.Add($"{string.Concat(s)}\n");
                 }
-                catch (Exception _)
+                catch (Exception)
                 {
                     inputList.Clear();
                 }
@@ -165,14 +167,16 @@ namespace Suzuryg.Competitive.Answer
                 try
                 {
                     // ABC243 D
-                    var rand = new Library.MyMath.Random();
-                    int n = rand.Next(1, int.Parse("1" + new string('0', 6)) + 1);
-                    long x = rand.Next(1, long.Parse("1" + new string('0', 18)) + 1);
+                    var intRandom = new System.Random();
+                    var longRandom = new Library.MyMath.LongRandom();
+
+                    int n = intRandom.Next(1, int.Parse("1" + new string('0', 6)) + 1);
+                    long x = longRandom.Next(1, long.Parse("1" + new string('0', 18)) + 1);
                     List<char> s = new List<char>();
                     long ans = x;
                     for (int i = 0; i < n; i++)
                     {
-                        int temp = rand.Next(0, 2 + 1);
+                        int temp = intRandom.Next(0, 2 + 1);
                         if (temp % 3 == 0)
                         {
                             if (ans >= 2)
@@ -182,7 +186,7 @@ namespace Suzuryg.Competitive.Answer
                             }
                             else
                             {
-                                int temp2 = rand.Next(0, 1 + 1);
+                                int temp2 = intRandom.Next(0, 1 + 1);
                                 if (temp2 % 2 == 0)
                                 {
                                     ans *= 2;
@@ -232,7 +236,7 @@ namespace Suzuryg.Competitive.Answer
                     // WAになる場合は、ここをコメントアウトして試してみる
                     outputList.Add("\n");
                 }
-                catch (Exception _)
+                catch (Exception)
                 {
                     inputList.Clear();
                     outputList.Clear();
